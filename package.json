@@ -1,7 +1,7 @@
 {
-	"name": "wd201-lvl2",
+	"name": "wd201-lvl3",
 	"version": "1.0.0",
-	"description": "WD201 Milestone of Level 2",
+	"description": "WD201 Milestone of Level 3",
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js"
