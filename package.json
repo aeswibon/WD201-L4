@@ -4,7 +4,6 @@
   "description": "WD201 Milestone of Level 4",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
     "test": "jest",
     "prepare": "husky install"
   },

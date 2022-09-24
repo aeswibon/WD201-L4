@@ -1,10 +1,11 @@
-const todoList = require("../file");
+const todoList = require("../todo");
 const { all, markAsComplete, add, overdue, dueToday, dueLater } = todoList();
 
 /* eslint-disable no-undef */
 
 describe("Todo List Test Suite", () => {
-  test("Create a new Todo", () => {
+  // checks creating a new todo
+  test("Should add a new todo", () => {
     expect(all.length).toEqual(0);
     add({
       title: "A test item",
@@ -14,13 +15,17 @@ describe("Todo List Test Suite", () => {
 
     expect(all.length).toEqual(1);
   });
-  test("Should mark a Todo as complete", () => {
+
+  // checks marking a todo as completed
+  test("Should mark a todo as complete", () => {
     expect(all.length).toEqual(1);
     expect(all[0].completed).toEqual(false);
     markAsComplete(0);
     expect(all[0].completed).toEqual(true);
   });
-  test("Should return overdue items", () => {
+
+  // checks retrieval of overdue items
+  test("Should retrieve overdue items", () => {
     expect(all.length).toEqual(1);
     const today = new Date();
     const oneDay = 60 * 60 * 24 * 1000;
@@ -35,7 +40,9 @@ describe("Todo List Test Suite", () => {
     overdueItems = overdue();
     expect(overdueItems.length).toBe(1);
   });
-  test("Should return due today items", () => {
+
+  // checks retrieval of due today items
+  test("Should retrieve due today items", () => {
     expect(all.length).toEqual(2);
     const today = new Date();
     add({
@@ -47,7 +54,9 @@ describe("Todo List Test Suite", () => {
     dueTodayItems = dueToday();
     expect(dueTodayItems.length).toBe(2);
   });
-  test("Should return due later items", () => {
+
+  // checks retrieval of due later items
+  test("Should retrieve due later items", () => {
     expect(all.length).toEqual(3);
     const today = new Date();
     const oneDay = 60 * 60 * 24 * 1000;
